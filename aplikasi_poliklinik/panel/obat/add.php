@@ -7,10 +7,11 @@ if(isset($_POST['tambah'])){
 	$nama 			= $_POST['nama'];
 	$jenis 			= $_POST['jenis'];
 	$stok 			= $_POST['stok'];
+	$harga 			= $_POST['harga'];
 
 
 	if( !empty($nama) ){
-		$query = "INSERT INTO obat (kodeobat,namaobat,jenisobat,stok) VALUES ('$kode','$nama','$jenis','$stok') ";
+		$query = "INSERT INTO obat (kode_obat,nama_obat,jenis_obat,stok, harga_obat) VALUES ('$kode','$nama','$jenis','$stok','$harga') ";
 		$insert = data($query);
 		if($insert){
 			header('Location:index.php');
@@ -40,15 +41,17 @@ if(isset($_POST['tambah'])){
 									<h2>Tambah Obat</h2>
 								</div>
 							<form action="" method="post">
-								<label for="">Nama Obat</label>
+								<label for="">nama</label>
 								<input type="text" name="nama" class="full" placeholder="Nama Obat">
-								<label for="">Jenis Obat</label>
+								<label for="">jenis</label>
 								<select name="jenis" id="">
 									<option value="generik">Generik</option>
 									<option value="non-generik">Non Generik</option>
 								</select>
-								<label for="">Stok</label>
+								<label for="">stok</label>
 								<input type="number" name="stok">
+								<label for="">harga</label>
+								<input type="number" name="harga">
 								<label for=""></label>
 								<input type="submit" value="Tambah Data" class="hijau" name="tambah">
 							</form>

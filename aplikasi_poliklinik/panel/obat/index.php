@@ -56,7 +56,7 @@ $no++;
 								<td><?= $row['kode_obat'] ?></td>
 								<td><?= $row['jenis_obat'] ?></td>
 								<td><?= $row['stok'] ?></td>
-								<td><?= $row['harga_obat'] ?></td>
+								<td>Rp. <?= $row['harga_obat'] ?></td>
 								<td>
 									<a href="edit.php?id=<?= $row['id_obat'] ?>" class="tmbl biru">&#9998;</a>
 									<a href="delete.php?id=<?= $row['id_obat'] ?>" class="tmbl merah">&#10005;</a>

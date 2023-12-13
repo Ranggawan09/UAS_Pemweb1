@@ -31,6 +31,7 @@
 <div class="footerop">
 	<center>Sistem Informasi Poliklinik</center>
 </div>
+<script src="hitung.js"></script>
 </body>
 </html>
 <?php } ?>

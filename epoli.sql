@@ -3,7 +3,11 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
+<<<<<<< HEAD
 -- Waktu pembuatan: 02 Des 2023 pada 11.52
+=======
+-- Waktu pembuatan: 13 Des 2023 pada 01.08
+>>>>>>> 9dff831 (update 2)
 -- Versi server: 10.4.32-MariaDB
 -- Versi PHP: 8.2.12
 
@@ -72,7 +76,12 @@ CREATE TABLE `obat` (
 INSERT INTO `obat` (`id_obat`, `kode_obat`, `nama_obat`, `jenis_obat`, `stok`, `harga_obat`) VALUES
 (1, ' OBT-001320', 'paramex', 'generik', 5, 10000),
 (2, ' OBT-001516', 'dextro', 'non-generik', 8, 5000),
+<<<<<<< HEAD
 (3, ' OBT-001546', 'paracetamol', 'generik', 10, 8000);
+=======
+(3, ' OBT-001546', 'paracetamol', 'generik', 10, 8000),
+(5, 'OBT-005107', 'Paracetamol', 'generik', 10, 5000);
+>>>>>>> 9dff831 (update 2)
 
 -- --------------------------------------------------------
 
@@ -125,11 +134,20 @@ CREATE TABLE `pembayaran` (
 --
 
 INSERT INTO `pembayaran` (`id_pembayaran`, `nama_pasien`, `jenis_poli`, `tarif_dokter`, `tagihan_obat`, `total_pembayaran`, `tanggal_pembayaran`) VALUES
+<<<<<<< HEAD
 (13, 'adinda', 'Jantung', 150000, 15000, 165000, '2023-12-02 06:55:37'),
 (14, 'putri', 'Gigi', 100000, 8000, 108000, '2023-12-02 06:25:42'),
 (16, 'jono', 'Mata', 0, 8000, 8000, '2023-12-02 06:12:45'),
 (17, 'jono', 'Mata', 0, 8000, 8000, '2023-12-02 06:12:45'),
 (18, 'tono', 'Jantung', 120000, 8000, 128000, '2023-12-02 06:25:34');
+=======
+(13, 'adinda', 'Jantung', 150000, 15000, 165000, '2023-12-12 13:19:05'),
+(14, 'putri', 'Gigi', 100000, 5000, 105000, '2023-12-08 14:18:54'),
+(18, 'tono', 'Jantung', 120000, 13000, 133000, '2023-12-09 02:13:15'),
+(19, 'salsa', 'Kulit', 175000, 15000, 190000, '2023-12-09 02:50:50'),
+(20, 'jono', 'Mata', 210000, 15000, 225000, '2023-12-12 14:05:37'),
+(21, 'jono', 'Mata', 210000, 13000, 223000, '2023-12-12 14:21:42');
+>>>>>>> 9dff831 (update 2)
 
 -- --------------------------------------------------------
 
@@ -152,12 +170,23 @@ CREATE TABLE `pendaftaran` (
 
 INSERT INTO `pendaftaran` (`id_pendaftaran`, `tanggal_daftar`, `dokter`, `pasien`, `poli`, `tarif`) VALUES
 (5, '2023-12-01 23:19:46', 'hari haru', 'adinda', 'Jantung', 150000),
+<<<<<<< HEAD
 (6, '2017-12-16 01:01:25', 'desi', 'jono', 'Mata', 0),
 (7, '2017-12-16 01:18:17', 'adi', 'jodi', 'Gigi', 0),
 (8, '2023-12-02 06:15:26', 'adi', 'putri', 'Gigi', 100000),
 (9, '2017-12-16 01:37:53', 'latief', 'heni', 'Tht', 0),
 (10, '2023-12-02 06:15:38', 'rahmayani', 'tono', 'Jantung', 120000),
 (11, '2017-12-16 01:38:05', 'adi', 'hadi', 'Gigi', 0);
+=======
+(8, '2023-12-02 06:15:26', 'adi', 'putri', 'Gigi', 100000),
+(10, '2023-12-02 06:15:38', 'rahmayani', 'tono', 'Jantung', 120000),
+(13, '2023-12-08 11:31:08', 'hari haru', 'putri', 'Jantung', 150000),
+(16, '2023-12-08 11:41:51', 'hari haru', 'adinda', 'Jantung', 150000),
+(17, '2023-12-08 11:42:16', 'nada asmara', 'tono', 'Saraf', 340000),
+(18, '2023-12-08 12:22:16', 'latief', 'adinda', 'Tht', 230000),
+(19, '2023-12-09 02:50:37', 'yanto pelet', 'salsa', 'Kulit', 175000),
+(20, '2023-12-12 14:05:26', 'desi', 'jono', 'Mata', 210000);
+>>>>>>> 9dff831 (update 2)
 
 -- --------------------------------------------------------
 
@@ -240,7 +269,12 @@ ALTER TABLE `pendaftaran`
   ADD PRIMARY KEY (`id_pendaftaran`),
   ADD KEY `id_dokter` (`dokter`),
   ADD KEY `id_pasien` (`pasien`),
+<<<<<<< HEAD
   ADD KEY `id_poli` (`poli`);
+=======
+  ADD KEY `id_poli` (`poli`),
+  ADD KEY `tarif` (`tarif`);
+>>>>>>> 9dff831 (update 2)
 
 --
 -- Indeks untuk tabel `poliklinik`
@@ -268,7 +302,11 @@ ALTER TABLE `dokter`
 -- AUTO_INCREMENT untuk tabel `obat`
 --
 ALTER TABLE `obat`
+<<<<<<< HEAD
   MODIFY `id_obat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+=======
+  MODIFY `id_obat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+>>>>>>> 9dff831 (update 2)
 
 --
 -- AUTO_INCREMENT untuk tabel `pasien`
@@ -280,13 +318,21 @@ ALTER TABLE `pasien`
 -- AUTO_INCREMENT untuk tabel `pembayaran`
 --
 ALTER TABLE `pembayaran`
+<<<<<<< HEAD
   MODIFY `id_pembayaran` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+=======
+  MODIFY `id_pembayaran` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+>>>>>>> 9dff831 (update 2)
 
 --
 -- AUTO_INCREMENT untuk tabel `pendaftaran`
 --
 ALTER TABLE `pendaftaran`
+<<<<<<< HEAD
   MODIFY `id_pendaftaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+=======
+  MODIFY `id_pendaftaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+>>>>>>> 9dff831 (update 2)
 
 --
 -- AUTO_INCREMENT untuk tabel `poliklinik`
