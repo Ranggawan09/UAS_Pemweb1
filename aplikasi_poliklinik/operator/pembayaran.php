@@ -114,18 +114,28 @@ headerku();
                 obat yang dipilih -->
                 <script>
                     function checkboxObat() {
-                        var totalHargaObat = 0;
-                        var obatSelect = document.getElementById("obatSelect");
-                        var selectedObat = obatSelect.selectedOptions;
+                var totalHargaObat = 0;
+                var obatSelect = document.getElementById("obatSelect");
+                var selectedObat = obatSelect.selectedOptions;
 
-                        for (var i = 0; i < selectedObat.length; i++) {
-                            totalHargaObat += parseFloat(selectedObat[i].getAttribute("data-harga"));
-                        }
+                // Tampilkan nama obat yang dipilih dalam tabel
+                var tbody = document.getElementById("tbody");
+                tbody.innerHTML = "";
+                for (var i = 0; i < selectedObat.length; i++) {
+                    var obatName = selectedObat[i].value;
+                    var row = "<tr><td>" + obatName + "</td></tr>";
+                    tbody.innerHTML += row;
 
-                        document
-                            .getElementById("total_pembayaran")
-                            .value = (totalHargaObat + <?php echo $tarif_dokter; ?>).toFixed(2);
-                    }
+                    totalHargaObat += parseFloat(selectedObat[i].getAttribute("data-harga"));
+                }
+
+                // Update total tagihan obat
+                var totalTagihanObat = totalHargaObat.toFixed(2);
+                document.getElementById("total_tagihan_obat").textContent = totalTagihanObat;
+                
+                // Update total pembayaran
+                document.getElementById("total_pembayaran").value = (totalHargaObat + <?php echo $tarif_dokter; ?>).toFixed(2);
+            }            
                 </script>
 
             <?php
@@ -180,6 +190,7 @@ if (isset($data_pasien) && $data_pasien) {
 
                 <!-- Tabel untuk menampilkan obat yang dipilih -->
                 <table id='tabelObat'>
+                    </br>
                     <thead>
                         <tr>
                             <th>Nama Obat</th>
