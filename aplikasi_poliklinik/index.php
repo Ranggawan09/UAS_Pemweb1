@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Resep</title>
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body>
 
@@ -54,7 +54,7 @@ if(isset($_POST['login'])){
 			</div>
 
 				<form action="" method="post" class="form-abu border">
-					<div class="logodok"><img src="asset/dokter.png" alt=""></div>
+					<div class="logodok"><img src="asset/dokter_login.png" alt=""></div>
 					<label for="">Username</label>
 					<input type="text" name="username" placeholder="Username" class="full">
 					<label for="">Password</label>
@@ -65,7 +65,7 @@ if(isset($_POST['login'])){
 						<option value="operator">Operator</option>
 					</select>
 					<label for=""></label>
-					<input type="submit" name="login" value="Login" class="hijau full">
+					<input type="submit" name="login" value="Login" class="biru full">
 					<label for=""></label>
 					<label for=""></label>
 				</form>
