@@ -25,7 +25,6 @@ if(isset($_GET['cari'])){
 				<div class="datatampil">
 					<div class="add">
 						<a href="add.php" class="tmbl biru kiri">+ Tambah Obat</a>
-						<a href="cetak.php" class="tmbl lime kiri">Print Data</a>
 						<form action="index.php" method="get" class="kanan">
 							<input type="text" name="cari" placeholder="Cari data...">
 							<button class="biru">Go</button>

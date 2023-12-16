@@ -3,16 +3,15 @@ require_once '../../Control.php';
 
 
 if(isset($_POST['tambah'])){
-	$kode 			= "PSN-".date('dis');
 	$nama 			= $_POST['nama'];
 	$gender 		= $_POST['gender'];
 	$alamat 		= $_POST['alamat'];
 	$telepon 		= $_POST['telepon'];
 	$umur 			= $_POST['umur'];
 
-	if( !empty($kode) && !empty($nama) && !empty($gender) && !empty($alamat) && !empty($telepon) && !empty($umur) ){
-		$query = "INSERT INTO pasien (kodepsn,namapsn,alamatpsn,genderpsn,umurpsn,teleponpsn) VALUES 
-							('$kode','$nama','$alamat','$gender','$umur','$telepon') ";
+	if( !empty($nama) && !empty($gender) && !empty($alamat) && !empty($telepon) && !empty($umur) ){
+		$query = "INSERT INTO pasien (namapsn,alamatpsn,genderpsn,umurpsn,teleponpsn) VALUES 
+							('$nama','$alamat','$gender','$umur','$telepon') ";
 		$insert = data($query);
 		if($insert){
 			header('Location:index.php');

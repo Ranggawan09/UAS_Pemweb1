@@ -29,14 +29,6 @@ function getTotalHargaObat($selected_obat)
     return $total_harga_obat;
 }
 
-function getDataPembayaran($bayar_pasien)
-{
-    global $link;
-    $query = "SELECT * FROM pembayaran WHERE nama_pasien = '$bayar_pasien'";
-    $result = mysqli_query($link, $query);
-    return mysqli_fetch_assoc($result);
-}
-
 headerku();
 
 ?>
@@ -153,13 +145,21 @@ headerku();
             $total_harga_obat = getTotalHargaObat($selected_obat);
             $total_tagihan = $tarif_dokter + $total_harga_obat;
 
-            $data_pembayaran = getDataPembayaran($nama_pasien);
-
-            if ($data_pembayaran) {
+            if ($nama_pasien) {
                 $insert_query = "INSERT INTO pembayaran (nama_pasien, jenis_poli, tagihan_obat, tarif_dokter, total_pembayaran, tanggal_pembayaran) VALUES ('$nama_pasien', '$jenis_poli', $total_harga_obat, $tarif_dokter, $total_tagihan, NOW())";
                 mysqli_query($link, $insert_query);
+
+                // Hapus data pasien dari tabel pendaftaran
+                $delete_query = "DELETE FROM pendaftaran WHERE pasien = '$nama_pasien'";
+                mysqli_query($link, $delete_query);
+
+                // Kurangi stok obat
+        foreach ($selected_obat as $obat) {
+            $update_stok_query = "UPDATE obat SET stok = stok - 1 WHERE nama_obat = '$obat'";
+            mysqli_query($link, $update_stok_query);
             }
         }
+    }
         ?>
 
         <div class="k2 padding">
@@ -211,9 +211,9 @@ echo "</br>";
 
 if (isset($_POST['bayar_submit'])) {
     if (mysqli_affected_rows($link) > 0) {
-        echo "Pembayaran berhasil ditambahkan atau diperbarui.";
+        echo "Pembayaran berhasil dilakukan.";
     } else {
-        echo "Gagal menambahkan atau memperbarui pembayaran.";
+        echo "Gagal melakukan pembayaran.";
     }
 }
 ?>

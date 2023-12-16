@@ -29,7 +29,6 @@ if(isset($_GET['cari'])){
 				<div class="datatampil">
 					<div class="add">
 						<a href="add.php" class="tmbl biru kiri">+ Tambah Data</a>
-						<a href="cetak.php" class="tmbl lime kiri">Print Data</a>
 						<form action="index.php" method="get" class="kanan">
 							<input type="text" name="cari" placeholder="Cari data...">
 							<button class="biru">Go</button>
@@ -41,9 +40,11 @@ if(isset($_GET['cari'])){
 							<tr>
 								<td>No</td>
 								<td>Nama</td>
-								<td>Kode Dokter</td>
-								<td>Spesialis</td>
+								<td>Jenis Kelamin</td>
+								<td>Alamat</td>
 								<td>Telepon</td>
+								<td>Spesialis</td>
+								<td>Waktu Praktek</td>
 								<td>Tarif</td>
 								<td>Opsi</td>
 							</tr>
@@ -57,9 +58,11 @@ $no++;
 							<tr>
 								<td><?= $no ?></td>
 								<td><?= $row['namadkt'] ?></td>
-								<td><?= $row['kodedkt'] ?></td>
-								<td><?= $row['poli'] ?></td>
+								<td><?= $row['jk'] ?></td>
+								<td><?= $row['alamat'] ?></td>
 								<td><?= $row['telepon'] ?></td>
+								<td><?= $row['poli'] ?></td>
+								<td><?= $row['jmpraktek'] ?></td>
 								<td>Rp. <?=$row['tarif'] ?></td>
 								<td>
 									<a href="edit.php?id=<?= $row['id_dokter'] ?>" class="tmbl biru">&#9998;</a>

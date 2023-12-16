@@ -3,11 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
-<<<<<<< HEAD
--- Waktu pembuatan: 02 Des 2023 pada 11.52
-=======
--- Waktu pembuatan: 13 Des 2023 pada 01.08
->>>>>>> 9dff831 (update 2)
+-- Waktu pembuatan: 16 Des 2023 pada 05.47
 -- Versi server: 10.4.32-MariaDB
 -- Versi PHP: 8.2.12
 
@@ -33,10 +29,11 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `dokter` (
   `id_dokter` int(11) NOT NULL,
-  `kodedkt` varchar(15) NOT NULL,
   `namadkt` varchar(30) NOT NULL,
+  `jk` varchar(15) NOT NULL,
   `alamat` text NOT NULL,
   `telepon` varchar(13) NOT NULL,
+  `jmpraktek` varchar(30) NOT NULL,
   `tarif` int(11) NOT NULL,
   `id_poli` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
@@ -45,14 +42,14 @@ CREATE TABLE `dokter` (
 -- Dumping data untuk tabel `dokter`
 --
 
-INSERT INTO `dokter` (`id_dokter`, `kodedkt`, `namadkt`, `alamat`, `telepon`, `tarif`, `id_poli`) VALUES
-(5, 'DKT-101906', 'hari haru', 'surakarta', '085600929282', 150000, 7),
-(6, 'DKT-101933', 'yanto pelet', 'sukoharjo', '081326530217', 175000, 9),
-(7, 'DKT-125100', 'adi', 'jakarta', '087889997654', 240000, 8),
-(8, 'DKT-125124', 'desi', 'palembang', '086778987654', 210000, 10),
-(9, 'DKT-100555', 'latief', 'jakarta', '087654345678', 230000, 11),
-(10, 'DKT-100623', 'nada asmara', 'palembang', '089998765678', 340000, 12),
-(11, 'DKT-101846', 'rahmayani', 'surabaya', '086554345678', 240000, 7);
+INSERT INTO `dokter` (`id_dokter`, `namadkt`, `jk`, `alamat`, `telepon`, `jmpraktek`, `tarif`, `id_poli`) VALUES
+(5, 'hari haru', 'Laki-Laki', 'surakarta', '085600929282', 'Senin-Kamis(09.00-15.00)', 150000, 7),
+(6, 'Yanto Mariadi', 'Laki-Laki', 'sukoharjo', '081326530217', 'Senin-Kamis(09.00-15.00)', 175000, 9),
+(7, 'adi', 'DKT-125100', 'jakarta', '087889997654', '', 240000, 8),
+(8, 'desi', 'DKT-125124', 'palembang', '086778987654', '', 210000, 10),
+(9, 'latief', 'DKT-100555', 'jakarta', '087654345678', '', 230000, 11),
+(10, 'nada asmara', 'DKT-100623', 'palembang', '089998765678', '', 340000, 12),
+(11, 'rahmayani', 'DKT-101846', 'surabaya', '086554345678', '', 240000, 7);
 
 -- --------------------------------------------------------
 
@@ -74,14 +71,11 @@ CREATE TABLE `obat` (
 --
 
 INSERT INTO `obat` (`id_obat`, `kode_obat`, `nama_obat`, `jenis_obat`, `stok`, `harga_obat`) VALUES
-(1, ' OBT-001320', 'paramex', 'generik', 5, 10000),
-(2, ' OBT-001516', 'dextro', 'non-generik', 8, 5000),
-<<<<<<< HEAD
-(3, ' OBT-001546', 'paracetamol', 'generik', 10, 8000);
-=======
-(3, ' OBT-001546', 'paracetamol', 'generik', 10, 8000),
-(5, 'OBT-005107', 'Paracetamol', 'generik', 10, 5000);
->>>>>>> 9dff831 (update 2)
+(1, '   OBT-001320', 'Paramex', 'generik', 19, 10000),
+(2, '  OBT-001516', 'Demacolin', 'non-generik', 19, 5000),
+(3, '  OBT-001546', 'Paracetamol', 'generik', 19, 8000),
+(6, 'OBT-003249', 'Antangin', 'generik', 19, 4000),
+(7, 'OBT-003430', 'Promag', 'generik', 19, 5000);
 
 -- --------------------------------------------------------
 
@@ -91,7 +85,6 @@ INSERT INTO `obat` (`id_obat`, `kode_obat`, `nama_obat`, `jenis_obat`, `stok`, `
 
 CREATE TABLE `pasien` (
   `id_pasien` int(11) NOT NULL,
-  `kodepsn` varchar(15) NOT NULL,
   `namapsn` varchar(50) NOT NULL,
   `alamatpsn` text NOT NULL,
   `genderpsn` varchar(1) NOT NULL,
@@ -103,15 +96,16 @@ CREATE TABLE `pasien` (
 -- Dumping data untuk tabel `pasien`
 --
 
-INSERT INTO `pasien` (`id_pasien`, `kodepsn`, `namapsn`, `alamatpsn`, `genderpsn`, `umurpsn`, `teleponpsn`) VALUES
-(2, 'PSN-294034', 'jono', 'surakarta', 'L', 12, '089765145267'),
-(3, 'PSN-294058', 'hadi', 'jakarta', 'L', 19, '08876538893'),
-(4, 'PSN-302445', 'putri', 'palembang', 'P', 19, '086778996554'),
-(5, 'PSN-303749', 'jodi', 'solo', 'L', 19, '087889887665'),
-(6, 'PSN-050106', 'salsa', 'karangasem', 'P', 17, '089889998765'),
-(7, 'PSN-120436', 'tono', 'sukoharjo', 'L', 25, '089998765677'),
-(8, 'PSN-120517', 'adinda', 'surakarta', 'P', 27, '087654321234'),
-(9, 'PSN-120554', 'heni', 'boyolali', 'P', 24, '089765456789');
+INSERT INTO `pasien` (`id_pasien`, `namapsn`, `alamatpsn`, `genderpsn`, `umurpsn`, `teleponpsn`) VALUES
+(2, 'jono', 'surakarta', 'L', 12, '089765145267'),
+(3, 'hadi', 'jakarta', 'L', 19, '08876538893'),
+(4, 'putri', 'palembang', 'P', 19, '086778996554'),
+(5, 'jodi', 'solo', 'L', 19, '087889887665'),
+(6, 'salsa', 'karangasem', 'P', 17, '089889998765'),
+(7, 'tono', 'sukoharjo', 'L', 25, '089998765677'),
+(8, 'adinda', 'surakarta', 'P', 27, '087654321234'),
+(9, 'heni', 'boyolali', 'P', 24, '089765456789'),
+(10, 'Budi Santoso', 'Jl. Mawar,\r\nKedungpari, Mojowarno, Jombang', 'L', 23, '082121212111');
 
 -- --------------------------------------------------------
 
@@ -134,20 +128,18 @@ CREATE TABLE `pembayaran` (
 --
 
 INSERT INTO `pembayaran` (`id_pembayaran`, `nama_pasien`, `jenis_poli`, `tarif_dokter`, `tagihan_obat`, `total_pembayaran`, `tanggal_pembayaran`) VALUES
-<<<<<<< HEAD
-(13, 'adinda', 'Jantung', 150000, 15000, 165000, '2023-12-02 06:55:37'),
-(14, 'putri', 'Gigi', 100000, 8000, 108000, '2023-12-02 06:25:42'),
-(16, 'jono', 'Mata', 0, 8000, 8000, '2023-12-02 06:12:45'),
-(17, 'jono', 'Mata', 0, 8000, 8000, '2023-12-02 06:12:45'),
-(18, 'tono', 'Jantung', 120000, 8000, 128000, '2023-12-02 06:25:34');
-=======
-(13, 'adinda', 'Jantung', 150000, 15000, 165000, '2023-12-12 13:19:05'),
-(14, 'putri', 'Gigi', 100000, 5000, 105000, '2023-12-08 14:18:54'),
-(18, 'tono', 'Jantung', 120000, 13000, 133000, '2023-12-09 02:13:15'),
-(19, 'salsa', 'Kulit', 175000, 15000, 190000, '2023-12-09 02:50:50'),
-(20, 'jono', 'Mata', 210000, 15000, 225000, '2023-12-12 14:05:37'),
-(21, 'jono', 'Mata', 210000, 13000, 223000, '2023-12-12 14:21:42');
->>>>>>> 9dff831 (update 2)
+(24, 'jono', 'Mata', 210000, 10000, 220000, '2023-12-15 12:17:55'),
+(25, 'putri', 'Gigi', 100000, 10000, 110000, '2023-12-15 12:18:30'),
+(26, 'tono', 'Jantung', 120000, 16000, 136000, '2023-12-15 12:22:15'),
+(27, 'adinda', 'Mata', 210000, 16000, 226000, '2023-12-15 12:23:17'),
+(28, 'adinda', 'Kulit', 175000, 15000, 190000, '2023-12-15 12:24:04'),
+(29, 'adinda', 'Jantung', 150000, 23000, 173000, '2023-12-15 12:24:43'),
+(30, 'adinda', 'Kulit', 175000, 10000, 185000, '2023-12-15 12:27:36'),
+(31, 'adinda', 'Gigi', 240000, 10000, 250000, '2023-12-15 12:28:09'),
+(32, 'adinda', 'Mata', 210000, 10000, 220000, '2023-12-15 12:28:43'),
+(33, 'adinda', 'Kulit', 175000, 10000, 185000, '2023-12-15 12:28:56'),
+(34, 'adinda', 'Jantung', 150000, 17000, 167000, '2023-12-15 12:36:15'),
+(35, 'adinda', 'Mata', 210000, 15000, 225000, '2023-12-16 03:34:29');
 
 -- --------------------------------------------------------
 
@@ -169,24 +161,7 @@ CREATE TABLE `pendaftaran` (
 --
 
 INSERT INTO `pendaftaran` (`id_pendaftaran`, `tanggal_daftar`, `dokter`, `pasien`, `poli`, `tarif`) VALUES
-(5, '2023-12-01 23:19:46', 'hari haru', 'adinda', 'Jantung', 150000),
-<<<<<<< HEAD
-(6, '2017-12-16 01:01:25', 'desi', 'jono', 'Mata', 0),
-(7, '2017-12-16 01:18:17', 'adi', 'jodi', 'Gigi', 0),
-(8, '2023-12-02 06:15:26', 'adi', 'putri', 'Gigi', 100000),
-(9, '2017-12-16 01:37:53', 'latief', 'heni', 'Tht', 0),
-(10, '2023-12-02 06:15:38', 'rahmayani', 'tono', 'Jantung', 120000),
-(11, '2017-12-16 01:38:05', 'adi', 'hadi', 'Gigi', 0);
-=======
-(8, '2023-12-02 06:15:26', 'adi', 'putri', 'Gigi', 100000),
-(10, '2023-12-02 06:15:38', 'rahmayani', 'tono', 'Jantung', 120000),
-(13, '2023-12-08 11:31:08', 'hari haru', 'putri', 'Jantung', 150000),
-(16, '2023-12-08 11:41:51', 'hari haru', 'adinda', 'Jantung', 150000),
-(17, '2023-12-08 11:42:16', 'nada asmara', 'tono', 'Saraf', 340000),
-(18, '2023-12-08 12:22:16', 'latief', 'adinda', 'Tht', 230000),
-(19, '2023-12-09 02:50:37', 'yanto pelet', 'salsa', 'Kulit', 175000),
-(20, '2023-12-12 14:05:26', 'desi', 'jono', 'Mata', 210000);
->>>>>>> 9dff831 (update 2)
+(19, '2023-12-09 02:50:37', 'yanto pelet', 'salsa', 'Kulit', 175000);
 
 -- --------------------------------------------------------
 
@@ -269,12 +244,8 @@ ALTER TABLE `pendaftaran`
   ADD PRIMARY KEY (`id_pendaftaran`),
   ADD KEY `id_dokter` (`dokter`),
   ADD KEY `id_pasien` (`pasien`),
-<<<<<<< HEAD
-  ADD KEY `id_poli` (`poli`);
-=======
   ADD KEY `id_poli` (`poli`),
   ADD KEY `tarif` (`tarif`);
->>>>>>> 9dff831 (update 2)
 
 --
 -- Indeks untuk tabel `poliklinik`
@@ -302,37 +273,25 @@ ALTER TABLE `dokter`
 -- AUTO_INCREMENT untuk tabel `obat`
 --
 ALTER TABLE `obat`
-<<<<<<< HEAD
-  MODIFY `id_obat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-=======
-  MODIFY `id_obat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
->>>>>>> 9dff831 (update 2)
+  MODIFY `id_obat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT untuk tabel `pasien`
 --
 ALTER TABLE `pasien`
-  MODIFY `id_pasien` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_pasien` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT untuk tabel `pembayaran`
 --
 ALTER TABLE `pembayaran`
-<<<<<<< HEAD
-  MODIFY `id_pembayaran` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
-=======
-  MODIFY `id_pembayaran` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
->>>>>>> 9dff831 (update 2)
+  MODIFY `id_pembayaran` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT untuk tabel `pendaftaran`
 --
 ALTER TABLE `pendaftaran`
-<<<<<<< HEAD
-  MODIFY `id_pendaftaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
-=======
-  MODIFY `id_pendaftaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
->>>>>>> 9dff831 (update 2)
+  MODIFY `id_pendaftaran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT untuk tabel `poliklinik`

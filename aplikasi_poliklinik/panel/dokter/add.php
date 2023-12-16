@@ -5,16 +5,17 @@ $query = "SELECT * FROM poliklinik";
 $poliklinik = data($query);
 
 if(isset($_POST['tambah'])){
-	$kode 			= "DKT-".date('his');
 	$nama 			= $_POST['nama'];
-	$alamat 			= $_POST['alamat'];
+	$jk 			= $_POST['jk'];
+	$alamat 		= $_POST['alamat'];
 	$telepon 		= $_POST['telepon'];
+	$jmpraktek 		= $_POST['jmpraktek'];
 	$tarif 			= $_POST['tarif'];
 	$poli 			= $_POST['poli'];
 
-	if( !empty($kode) && !empty($nama) && !empty($alamat) && !empty($telepon) && !empty($tarif) && !empty($poli) ){
-		$query = "INSERT INTO dokter (kodedkt,namadkt,alamat,telepon,tarif,id_poli) VALUES 
-					('$kode','$nama','$alamat','$telepon','$tarif','$poli') ";
+	if( !empty($jk) && !empty($nama) && !empty($alamat) && !empty($telepon) && !empty($tarif) && !empty($poli) ){
+		$query = "INSERT INTO dokter (namadkt, jk, alamat,telepon,jmpraktek,tarif,id_poli) VALUES 
+					('$nama','$jk','$alamat','$telepon','$jmpraktek','$tarif','$poli') ";
 		$insert = data($query);
 		if($insert){
 			header('Location:index.php');
@@ -56,6 +57,8 @@ if(isset($_POST['tambah'])){
 								<textarea name="alamat" class="full"></textarea>
 								<label for="">Telepon</label>
 								<input type="number" class="f50" name="telepon">
+								<label for="">Waktu Praktek</label>
+								<input type="text" class="f50" name="Waktu Praktek">
 								<label for="">Tarif</label>
 								<input type="number" class="f50" name="tarif">
 								<label for=""></label>

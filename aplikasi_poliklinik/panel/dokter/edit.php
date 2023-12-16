@@ -7,14 +7,16 @@ $getdata = mysqli_fetch_assoc(data($query));
 
 
 if(isset($_POST['edit'])){
-	$id 				= $_POST['id'];
+	$id 			= $_POST['id'];
 	$nama 			= $_POST['nama'];
+	$jk 			= $_POST['jk'];
 	$alamat 		= $_POST['alamat'];
 	$telepon 		= $_POST['telepon'];
+	$jmpraktek 		= $_POST['jmpraktek'];
 	$tarif 			= $_POST['tarif'];
 
-	if( !empty($nama) && !empty($alamat) && !empty($telepon) && !empty($tarif) ){
-		$query = "UPDATE dokter SET namadkt='$nama',alamat='$alamat',telepon='$telepon',tarif='$tarif' WHERE id_dokter=$id ";
+	if( !empty($nama) && !empty($jk) && !empty($alamat) && !empty($telepon) && !empty($jmpraktek) && !empty($tarif) ){
+		$query = "UPDATE dokter SET namadkt='$nama',jk='$jk',alamat='$alamat',telepon='$telepon',jmpraktek='$jmpraktek',tarif='$tarif' WHERE id_dokter=$id ";
 		$update = data($query);
 		if($update){
 			header('Location:index.php');
@@ -47,10 +49,14 @@ if(isset($_POST['edit'])){
 								<label for="">Nama Dokter</label>
 								<input type="hidden" name="id" value="<?= $getdata['id_dokter']; ?>">
 								<input type="text" name="nama" class="full" placeholder="Nama Dokter" value="<?= $getdata['namadkt']; ?>">
+								<label for="">Jenis Kelamin</label>
+								<input type="text" class="f50" name="jk" value="<?= $jk; ?>">
 								<label for="">Alamat</label>
 								<textarea name="alamat" class="full"><?= $getdata['alamat']; ?></textarea>
 								<label for="">Telepon</label>
 								<input type="number" class="f50" name="telepon" value="<?= $getdata['telepon']; ?>">
+								<label for="">Waktu Praktek</label>
+								<input type="text" class="f50" name="jmpraktek" value="<?= $jmpraktek; ?>">
 								<label for="">Tarif</label>
 								<input type="number" class="f50" name="tarif"  value="<?= $getdata['tarif']; ?>">
 								<label for=""></label>

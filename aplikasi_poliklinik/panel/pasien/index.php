@@ -25,7 +25,6 @@ if(isset($_GET['cari'])){
 				<div class="datatampil">
 					<div class="add">
 						<a href="add.php" class="tmbl biru kiri">+ Tambah Data</a>
-						<a href="cetak.php" class="tmbl lime kiri">Print Data</a>
 						<form action="index.php" method="get" class="kanan">
 							<input type="text" name="cari" placeholder="Cari data...">
 							<button class="biru">Go</button>
@@ -37,7 +36,7 @@ if(isset($_GET['cari'])){
 							<tr>
 								<td>No</td>
 								<td>Nama</td>
-								<td>Kode</td>
+								<td>Alamat</td>
 								<td>Gender</td>
 								<td>Umur</td>
 								<td>Telepon</td>
@@ -53,7 +52,7 @@ $no++;
 							<tr>
 								<td><?= $no ?></td>
 								<td><?= $row['namapsn']; ?></td>
-								<td><?= $row['kodepsn']; ?></td>
+								<td><?= $row['alamatpsn']; ?></td>
 								<td><?= $row['genderpsn']; ?></td>
 								<td><?= $row['umurpsn']; ?></td>
 								<td><?= $row['teleponpsn']; ?></td>
