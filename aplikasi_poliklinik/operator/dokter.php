@@ -25,8 +25,8 @@ $read = data($query);
 					<tr>
 						<td>No</td>
 						<td>Nama Dokter</td>
-						<td>Kode Dokter</td>
 						<td>Spesialis</td>
+						<td>Jam Praktek</td>
 						<td>Tarif</td>
 						<td>Telepon</td>
 					</tr>
@@ -40,8 +40,8 @@ $read = data($query);
 					<tr>
 						<td><?= $no ?></td>
 						<td><?= $row['namadkt'] ?></td>
-						<td><?= $row['kodedkt'] ?></td>
 						<td><?= $row['poli'] ?></td>
+						<td><?= $row['jmpraktek'] ?></td>
 						<td>Rp <?= number_format($row['tarif']) ?></td>
 						<td><?= $row['telepon'] ?></td>
 					</tr>
