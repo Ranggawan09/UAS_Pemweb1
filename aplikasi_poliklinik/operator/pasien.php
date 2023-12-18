@@ -67,8 +67,8 @@ if(isset($_POST['tambah'])){
 				<tr>
 					<td>No</td>
 					<td>Nama Pasien</td>
-					<td>Kode</td>
-					<td>Gender</td>
+					<td>Jenis Kelamin</td>
+					<td>Alamat</td>
 				</tr>
 			</thead>
 			<tbody>
@@ -80,8 +80,8 @@ if(isset($_POST['tambah'])){
 				<tr>
 					<td><?= $no ?></td>
 					<td><?= $row['namapsn'] ?></td>
-					<td><?= $row['kodepsn'] ?></td>
 					<td><?= $row['genderpsn'] ?></td>
+					<td><?= $row['alamatpsn'] ?></td>
 				</tr>
 		<?php } ?>
 			</tbody>
