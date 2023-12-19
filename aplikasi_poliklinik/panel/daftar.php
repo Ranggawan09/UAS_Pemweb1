@@ -25,7 +25,6 @@ if(isset($_GET['cari'])){
 					<center style="padding: 10px;"><h2>PASIEN TERDAFTAR POLI</h2></center>
 				<div class="datatampil">
 					<div class="add">
-						<a href="cetak.php" class="tmbl lime kiri">Print Data</a>
 						<form action="daftar.php" method="get" class="kanan">
 							<input type="text" name="cari" placeholder="Cari data...">
 							<button class="biru">Go</button>
