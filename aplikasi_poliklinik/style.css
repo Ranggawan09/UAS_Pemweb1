@@ -177,8 +177,8 @@ footer p{
 .navop,.footerop{
 	height: 55px; line-height: 55px;
 	/*background: #001E2E; */
-	background: #003B5C;
-	border-bottom: 3px solid #47D9B4;
+	background: #001E2E;
+	border-bottom: 3px solid #ffd620;
 	color: #fff;
 	padding: 0px 10px;
 }
@@ -218,7 +218,7 @@ footer p{
 }
 .mainop h2{padding: 10px 0px;}
 .pilih{
-	border-bottom: 3px solid #47D9B4;
+	border-bottom: 3px solid #ffd620;
 	margin-bottom: 10px;
 }
 .dafpoli{
