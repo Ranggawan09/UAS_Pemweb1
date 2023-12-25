@@ -50,7 +50,7 @@ if(isset($_POST['login'])){
 			
 			<div class="welcome">
 				<h1>Selamat datang</h1> 
-				<h3>Aplikasi Penebusan Resep Dokter</h3>
+				<h3>Sistem Informasi Poiklinik</h3>
 			</div>
 
 				<form action="" method="post" class="form-abu border">
